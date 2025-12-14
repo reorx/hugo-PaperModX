@@ -126,7 +126,7 @@ function toggleThemeListener() {
         {{- $currentPage := . }}
         <ul id="menu">
             {{- range site.Menus.main }}
-            {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL)) | absURL }}
+            {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL)) | relURL }}
             {{- $page_url:= $currentPage.Permalink }}
             {{- $is_search := eq (site.GetPage .KeyName).Layout `search` }}
             <li>
